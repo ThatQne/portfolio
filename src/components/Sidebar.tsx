@@ -98,9 +98,9 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
             <div key={section.id} className="relative group">
               <button
                 onClick={() => scrollToSection(section.id)}
-                className={`relative w-10 h-10 rounded-full border-2 transition-all duration-300 flex items-center justify-center hover:scale-110 ${isActive
+                className={`relative w-10 h-10 rounded-full border transition-all duration-300 flex items-center justify-center hover:scale-110 ${isActive
                   ? 'bg-theme-accent border-theme-accent text-white'
-                  : 'bg-theme-tertiary border-theme-secondary text-theme-muted hover:border-theme-accent hover:text-theme-accent'
+                  : 'bg-theme-tertiary border-theme-primary text-theme-muted hover:border-theme-accent hover:text-theme-accent'
                   }`}
                 style={isActive ? {
                   boxShadow: `0 4px 20px ${theme.colors.accent.light}`

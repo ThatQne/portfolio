@@ -69,9 +69,9 @@ export const portfolioData = {
         { name: "JavaScript", icon: "SiJavascript", pack: "si" },
         { name: "HTML5", icon: "SiHtml5", pack: "si" },
         { name: "CSS3", icon: "SiCss3", pack: "si" },
-        { name: "Sass", icon: "SiSass", pack: "si" },
         { name: "Tailwind", icon: "SiTailwindcss", pack: "si" },
-        { name: "Bootstrap", icon: "SiBootstrap", pack: "si" }
+        { name: "Lua", icon: "SiLua", pack: "si" },
+        { name: "Python", icon: "SiPython", pack: "si" },
       ]
     },
     {
@@ -79,8 +79,7 @@ export const portfolioData = {
       speed: 50,
       items: [
         { name: "Node.js", icon: "SiNodedotjs", pack: "si" },
-        { name: "Python", icon: "SiPython", pack: "si" },
-        { name: "PostgreSQL", icon: "SiPostgresql", pack: "si" },
+        { name: "SQLite", icon: "SiSqlite", pack: "si" },
         { name: "MongoDB", icon: "SiMongodb", pack: "si" },
         { name: "Redis", icon: "SiRedis", pack: "si" },
         { name: "Docker", icon: "SiDocker", pack: "si" },
@@ -95,43 +94,57 @@ export const portfolioData = {
         { name: "GitHub", icon: "SiGithub", pack: "si" },
         { name: "Figma", icon: "SiFigma", pack: "si" },
         { name: "VS Code", icon: "SiVisualstudiocode", pack: "si" },
-        { name: "Jest", icon: "SiJest", pack: "si" },
-        { name: "Webpack", icon: "SiWebpack", pack: "si" },
         { name: "Vite", icon: "SiVite", pack: "si" }
       ]
     },
   ],
 
+  // finished - Green badge
+  // in-progress - Blue badge
+  // abandoned - Red badge
+  // paused - Yellow badge
+  // planned - Purple badge
+
   projects: [
     {
-      id: 1,
-      title: "E-commerce Platform",
-      description: "A modern e-commerce platform built with React, Node.js, and PostgreSQL. Features include user authentication, payment processing, and admin dashboard.",
-      image: "https://images.pexels.com/photos/4498362/pexels-photo-4498362.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "Node.js", "PostgreSQL", "Stripe"],
-      liveUrl: "https://example-ecommerce.com",
-      githubUrl: "https://github.com/johndoe/ecommerce-platform",
-      featured: true
+      title: "Portfolio",
+      description: "The portfolio site you are browsing right now.",
+      technologies: ["React", "Node.js"],
+      liveUrl: "https://thatqne.github.io/portfolio",
+      githubUrl: "https://github.com/thatqne/portfolio",
+      featured: false,
+      status: "finished"
+      // image: "car-trading-app.jpg" // Optional: add image filename from src/data/images/
     },
     {
-      id: 2,
-      title: "Task Management App",
-      description: "A collaborative task management application with real-time updates, drag-and-drop functionality, and team collaboration features.",
-      image: "https://images.pexels.com/photos/7376/startup-photos.jpg?auto=compress&cs=tinysrgb&w=600",
+      title: "Drivora",
+      description: "A modern Car Auction and Trading platform. Features include user authentication, live chat, and trade system.",
+      technologies: ["React", "Node.js"],
+      liveUrl: "https://thatqne.github.io/drivora",
+      githubUrl: "https://github.com/thatqne/drivora",
+      featured: true,
+      status: "paused"
+      // image: "car-trading-app.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "DoThat",
+      description: "A minimalist task management application, with drag-and-drop functionality, reminders, and extra features.",
       technologies: ["Vue.js", "Firebase", "Vuetify"],
-      liveUrl: "https://example-tasks.com",
-      githubUrl: "https://github.com/johndoe/task-manager",
-      featured: true
+      liveUrl: "https://thatqne.github.io/dothat/",
+      githubUrl: "https://github.com/thatqne/dothat",
+      featured: true,
+      status: "paused"
+      // image: "task-app.png" // Optional: add image filename from src/data/images/
     },
     {
-      id: 3,
-      title: "Weather Dashboard",
-      description: "A beautiful weather dashboard with location-based forecasts, interactive maps, and detailed weather analytics.",
-      image: "https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600",
-      technologies: ["React", "Chart.js", "OpenWeather API"],
-      liveUrl: "https://example-weather.com",
-      githubUrl: "https://github.com/johndoe/weather-dashboard",
-      featured: false
+      title: "Vestro",
+      description: "A modern mock gambling site with a live leaderboard and case battles",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/vestro/",
+      githubUrl: "https://github.com/thatqne/vestro",
+      featured: false,
+      status: "abandoned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
     }
   ],
 

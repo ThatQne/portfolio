@@ -100,8 +100,8 @@ export const lightTheme: ThemeConfig = {
       accent: '#0066cc', // professional blue
     },
     border: {
-      primary: '#d4d4d4', // visible neutral border
-      secondary: '#a3a3a3', // stronger border
+      primary: '#404040', // dark grey border
+      secondary: '#404040', // darker grey border
       accent: '#0066cc', // matching accent blue
     },
     accent: {

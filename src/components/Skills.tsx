@@ -55,8 +55,8 @@ const ConveyorBelt: React.FC<ConveyorBeltProps> = ({ skills, direction, speed = 
     const initializePosition = () => {
       // Force reflow and calculate width
       content.offsetHeight;
-      singleSetWidth.current = content.scrollWidth / 3;
-      
+      singleSetWidth.current = content.scrollWidth / 5;
+
       if (singleSetWidth.current > 0) {
         // For left-moving belts, start at 0 to ensure right side is filled
         // For right-moving belts, start at -singleSetWidth to ensure left side is filled
@@ -188,8 +188,8 @@ const ConveyorBelt: React.FC<ConveyorBeltProps> = ({ skills, direction, speed = 
     }
   };
 
-  // Triple skills for truly seamless infinite scroll
-  const duplicatedSkills = [...skills, ...skills, ...skills];
+  // Five-fold skills for truly seamless infinite scroll
+  const duplicatedSkills = [...skills, ...skills, ...skills, ...skills, ...skills];
 
   return (
     <div
@@ -201,8 +201,18 @@ const ConveyorBelt: React.FC<ConveyorBeltProps> = ({ skills, direction, speed = 
       onMouseLeave={handleMouseLeave}
     >
       {/* Gradient overlays for smooth edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-theme-primary to-transparent z-10 pointer-events-none"></div>
-      <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-theme-primary to-transparent z-10 pointer-events-none"></div>
+      <div
+        className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to right, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%)'
+        }}
+      ></div>
+      <div
+        className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
+        style={{
+          background: 'linear-gradient(to left, var(--bg-primary) 0%, var(--bg-primary) 30%, transparent 100%)'
+        }}
+      ></div>
 
       <div
         ref={contentRef}
