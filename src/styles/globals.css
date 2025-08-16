@@ -1,0 +1,209 @@
+/* Hide scrollbars globally */
+html {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+html::-webkit-scrollbar {
+  display: none;
+  /* WebKit */
+}
+
+body {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  /* WebKit */
+}
+
+/* Hide scrollbars for all elements */
+* {
+  scrollbar-width: none;
+  /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+}
+
+*::-webkit-scrollbar {
+  display: none;
+  /* WebKit */
+}
+
+/* Disable text selection globally */
+* {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+
+/* Disable text selection for all common text elements */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+div,
+a,
+li,
+ul,
+ol,
+button,
+label {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+  -webkit-touch-callout: none !important;
+}
+
+/* Disable selection for pseudo-elements */
+*::before,
+*::after {
+  user-select: none !important;
+  -webkit-user-select: none !important;
+  -moz-user-select: none !important;
+  -ms-user-select: none !important;
+}
+
+/* Disable drag for images and other elements */
+img,
+svg,
+canvas {
+  -webkit-user-drag: none !important;
+  -khtml-user-drag: none !important;
+  -moz-user-drag: none !important;
+  -o-user-drag: none !important;
+  user-drag: none !important;
+  pointer-events: auto !important;
+}
+
+/* Allow selection for input fields */
+input,
+textarea {
+  user-select: text !important;
+  -webkit-user-select: text !important;
+  -moz-user-select: text !important;
+  -ms-user-select: text !important;
+}
+
+html {
+  scroll-behavior: smooth;
+  overscroll-behavior: none;
+  /* Prevent bounce scrolling */
+  overscroll-behavior-y: none;
+  /* Prevent vertical bounce scrolling */
+  overscroll-behavior-x: none;
+  /* Prevent horizontal bounce scrolling */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  height: 100%;
+  background-color: var(--bg-primary, #0a0a0a);
+  /* Fallback to dark background */
+  touch-action: manipulation;
+  /* Prevent bounce on mobile */
+}
+
+body {
+  overscroll-behavior: none !important;
+  /* Prevent bounce scrolling */
+  overscroll-behavior-y: none !important;
+  /* Prevent vertical bounce scrolling */
+  overscroll-behavior-x: none !important;
+  /* Prevent horizontal bounce scrolling */
+  overflow-x: hidden;
+  /* Prevent horizontal scrolling */
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--bg-primary, #0a0a0a);
+  /* Fallback to dark background */
+  position: relative;
+  touch-action: manipulation;
+  /* Prevent bounce on mobile */
+}
+
+/* Hide scrollbar for conveyor belts */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Custom animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.6s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.4s ease-out;
+}
+
+.delay-100 {
+  animation-delay: 0.1s;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
