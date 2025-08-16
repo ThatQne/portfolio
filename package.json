@@ -9,10 +9,8 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
-    "deploy-only": "gh-pages -d dist",
-    "publish": "node deploy.js"
+    "publish": "node deploy.js",
+    "deploy-manual": "npm run build && gh-pages -d dist"
   },
   "dependencies": {
     "@types/matter-js": "^0.19.8",

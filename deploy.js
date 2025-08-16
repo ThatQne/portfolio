@@ -26,7 +26,7 @@ try {
   // Check if there are any changes to commit
   try {
     execSync('git diff --quiet && git diff --cached --quiet', { stdio: 'ignore' });
-    console.log('📝 No changes to commit, proceeding with deployment...');
+    console.log('📝 No changes to commit...');
   } catch (changesError) {
     // There are changes, let's commit them
     console.log('📝 Committing changes...');
@@ -35,25 +35,17 @@ try {
     // Get current timestamp for commit message
     const timestamp = new Date().toLocaleString();
     execSync(`git commit -m "Update portfolio - ${timestamp}"`, { stdio: 'inherit' });
-    
-    console.log('⬆️  Pushing changes to main branch...');
-    execSync('git push origin main', { stdio: 'inherit' });
   }
   
-  // Build the project
-  console.log('📦 Building project...');
-  execSync('npm run build', { stdio: 'inherit' });
+  console.log('⬆️  Pushing to main branch...');
+  execSync('git push origin main', { stdio: 'inherit' });
   
-  // Deploy to gh-pages
-  console.log('🌐 Deploying to GitHub Pages...');
-  execSync('npm run deploy', { stdio: 'inherit' });
-  
-  console.log('✅ Deployment successful!');
-  console.log('🔗 Your site will be available at your GitHub Pages URL');
-  console.log('📋 What happened:');
-  console.log('   1. ✅ Committed and pushed your changes to main branch');
-  console.log('   2. ✅ Built your project');
-  console.log('   3. ✅ Deployed to GitHub Pages');
+  console.log('✅ Changes pushed successfully!');
+  console.log('🤖 GitHub Actions will now:');
+  console.log('   1. ✅ Build your project automatically');
+  console.log('   2. ✅ Deploy to GitHub Pages automatically');
+  console.log('🔗 Your site will be available at: https://ThatQne.github.io/portfolio');
+  console.log('📊 Check deployment status: https://github.com/ThatQne/portfolio/actions');
   
 } catch (error) {
   console.error('❌ Deployment failed:', error.message);
