@@ -8,7 +8,7 @@ const NotificationContainer: React.FC = () => {
   if (notifications.length === 0) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 z-50 pointer-events-none">
+    <div className="fixed bottom-4 right-4 z-20 pointer-events-none">
       <div className="flex flex-col-reverse gap-3">
         {notifications.map((notification, index) => (
           <div

@@ -302,10 +302,16 @@ const CursorTrail: React.FC = () => {
     return (
         <canvas
             ref={canvasRef}
-            className="fixed top-0 left-0 pointer-events-none z-50"
             style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
                 width: '100vw',
                 height: '100vh',
+                zIndex: 9999,
+                pointerEvents: 'none',
+                userSelect: 'none',
+                touchAction: 'none',
                 mixBlendMode: 'normal'
             }}
         />

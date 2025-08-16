@@ -76,7 +76,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
   };
 
   return (
-    <div className={`fixed left-0 top-0 h-full w-16 bg-theme-secondary/95 backdrop-blur-md border-r border-theme-primary z-50 flex flex-col items-center py-8 ${className}`}>
+    <div className={`fixed left-0 top-0 h-full w-16 bg-theme-secondary/95 backdrop-blur-md border-r border-theme-primary z-40 flex flex-col items-center py-8 ${className}`}>
       {/* Logo with Physics Easter Egg */}
       <div className="mb-8">
         <div

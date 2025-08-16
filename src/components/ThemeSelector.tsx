@@ -16,7 +16,7 @@ const ThemeSelector: React.FC = () => {
   const currentThemeOption = themeOptions.find(option => option.key === theme.name);
 
   return (
-    <div className="fixed top-6 right-6 z-50">
+    <div className="fixed top-6 right-6 z-30">
       <div className="relative">
         {/* Theme Selector Button */}
         <button
