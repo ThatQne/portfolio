@@ -1,11 +1,17 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { portfolioData } from '../data/portfolio';
 import { getIcon } from '../utils/iconUtils';
 import { useClipboard } from '../hooks/useClipboard';
+import ComicTooltip from './ComicTooltip';
 
-const Hero: React.FC = () => {
+interface HeroProps {
+  bubbleMessage?: string;
+}
+
+const Hero: React.FC<HeroProps> = ({ bubbleMessage = "The matrix has you..." }) => {
   const { personal, social } = portfolioData;
   const { copyToClipboard } = useClipboard();
+  const [showTooltip, setShowTooltip] = useState(false);
 
 
 
@@ -23,11 +29,17 @@ const Hero: React.FC = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center animate-fade-in">
           {/* Avatar */}
-          <div className="mb-8">
+          <div className="mb-8 relative">
             <img
               src={personal.avatar}
               alt={personal.name}
-              className="w-32 h-32 rounded-full mx-auto border-2 border-theme-accent/30 hover:border-theme-accent shadow-2xl animate-scale-in transition-all duration-300"
+              className="w-32 h-32 rounded-full mx-auto border-2 border-theme-accent/30 hover:border-theme-accent shadow-2xl animate-scale-in transition-all duration-300 cursor-pointer"
+              onMouseEnter={() => setShowTooltip(true)}
+              onMouseLeave={() => setShowTooltip(false)}
+            />
+            <ComicTooltip 
+              message={bubbleMessage} 
+              isVisible={showTooltip} 
             />
           </div>
 

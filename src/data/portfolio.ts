@@ -127,6 +127,16 @@ export const portfolioData = {
       // image: "car-trading-app.jpg" // Optional: add image filename from src/data/images/
     },
     {
+      title: "zer0",
+      description: "An advanced QR code scanner for businesses, targeted to eliminate wait times and speed up purchases.",
+      technologies: ["React", "Node.js"],
+      liveUrl: "https://thatqne.github.io/zer0",
+      githubUrl: "https://github.com/thatqne/zer0",
+      featured: true,
+      status: "in-progress"
+      // image: "car-trading-app.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
       title: "DoThat",
       description: "A minimalist task management application, with drag-and-drop functionality, reminders, and extra features.",
       technologies: ["Vue.js", "Firebase", "Vuetify"],
@@ -145,27 +155,126 @@ export const portfolioData = {
       featured: false,
       status: "abandoned"
       // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
-    }
+    },
+    {
+      title: "ZenTax",
+      description: "Auto tax completion software with AI",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "Lumo",
+      description: "Very streamline and encrypted messaging service, prioritizing speed and simplicity.",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "Versura",
+      description: "Online ranked 1v1 games, from tetri to chess, in a reimagined look.",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "AI Trade Bot",
+      description: "A forex trade software with autotrading and mock testing of strategies",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "Swipr",
+      description: "A easy app to organize your gallery, swipe right to delete and left to keep, sorted by date, albums, ect",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
+    {
+      title: "Pet Trade",
+      description: "An app to trade and sell pets and animals",
+      technologies: ["React"],
+      liveUrl: "https://thatqne.github.io/-",
+      githubUrl: "https://github.com/thatqne/-",
+      featured: false,
+      status: "planned"
+      // image: "weather-dashboard.jpg" // Optional: add image filename from src/data/images/
+    },
   ],
 
   experience: [
     {
-      company: "Tech Solutions Inc.",
-      position: "Senior Full Stack Developer",
-      duration: "2022 - Present",
-      description: "Lead development of multiple client projects, mentor junior developers, and architect scalable web applications."
+      company: "MeLand LLC",
+      position: "Point-of-Sale Operations Associate",
+      duration: "May 2022 - August 2022",
+      description: "Dealt with sums of cash and handles customers in a one to one environment"
     },
     {
-      company: "StartupXYZ",
-      position: "Frontend Developer",
-      duration: "2020 - 2022",
-      description: "Developed responsive web applications using React and implemented modern UI/UX designs."
+      company: "iFix",
+      position: "Technical Service Operations Executive",
+      duration: "May 2025 - August 2025",
+      description: "Worked on high end pieces of technology"
+    },
+  ],
+
+  // Easter egg casual content
+  casualProjects: [
+    {
+      title: "Gaming Setup",
+      description: "My current gaming rig and favorite games",
+      icon: "gamepad",
+      link: "https://steamcommunity.com/id/thatqne",
+      tags: ["Gaming", "Hardware"],
+      details: "RTX 4070, Ryzen 7 5800X, 32GB RAM - Currently grinding Valorant and Apex Legends"
     },
     {
-      company: "Digital Agency",
-      position: "Web Developer",
-      duration: "2019 - 2020",
-      description: "Built custom websites and web applications for various clients using modern web technologies."
+      title: "Music Playlists",
+      description: "Coding soundtracks and chill vibes",
+      icon: "music",
+      link: "https://open.spotify.com/user/thatqne",
+      tags: ["Music", "Spotify"],
+      details: "Lo-fi hip hop, synthwave, and electronic music for those late-night coding sessions"
+    },
+    {
+      title: "Coffee Reviews",
+      description: "Rating local coffee shops and brews",
+      icon: "coffee",
+      link: "#",
+      tags: ["Coffee", "Reviews"],
+      details: "On a mission to find the perfect espresso in the DMV area"
+    },
+    {
+      title: "Photography",
+      description: "Random shots and street photography",
+      icon: "camera",
+      link: "https://instagram.com/thatqne",
+      tags: ["Photography", "Art"],
+      details: "Capturing moments with my trusty Canon EOS R6"
     }
+  ],
+
+  casualStats: [
+    { label: "Hours in Valorant", value: "500+" },
+    { label: "Coffee shops visited", value: "42" },
+    { label: "Bugs created", value: "∞" },
+    { label: "Side projects started", value: "127" },
+    { label: "Side projects finished", value: "3" },
+    { label: "Energy drinks consumed", value: "9001" }
   ]
 };

@@ -11,9 +11,23 @@ import Footer from './components/Footer';
 import CursorTrail from './components/CursorTrail';
 import ThemeSelector from './components/ThemeSelector';
 import NotificationContainer from './components/NotificationContainer';
+import PasswordModal from './components/PasswordModal';
+import CasualPage from './components/CasualPage';
+import { useEasterEgg } from './hooks/useEasterEgg';
 import './styles/theme-transitions.css';
 
 function App() {
+  const {
+    isUnlocked,
+    showPasswordModal,
+    showCasualPage,
+    bubbleMessage,
+    unlock,
+    openPasswordModal,
+    closeCasualPage,
+    closePasswordModal
+  } = useEasterEgg();
+
   return (
     <ThemeProvider>
       <NotificationProvider>
@@ -22,14 +36,29 @@ function App() {
           <ThemeSelector />
           <Sidebar />
           <div className="ml-16">
-            <Hero />
+            <Hero bubbleMessage={bubbleMessage} />
             <About />
             <Skills />
             <Projects />
             <Contact />
-            <Footer />
+            <Footer 
+              isUnlocked={isUnlocked}
+              onLockClick={openPasswordModal}
+            />
           </div>
           <NotificationContainer />
+          
+          {/* Easter Egg Components */}
+          <PasswordModal
+            isOpen={showPasswordModal}
+            onClose={closePasswordModal}
+            onSubmit={unlock}
+          />
+          
+          <CasualPage
+            isOpen={showCasualPage}
+            onClose={closeCasualPage}
+          />
         </div>
       </NotificationProvider>
     </ThemeProvider>

@@ -10,12 +10,12 @@ const Projects: React.FC = () => {
   // Get project image URL or return null for placeholder
   const getProjectImage = (imagePath?: string) => {
     if (!imagePath) return null;
-    
+
     // If it's already a full URL, return as is
     if (imagePath.startsWith('http')) {
       return imagePath;
     }
-    
+
     // Otherwise, treat as local image in src/data/images/
     return `/src/data/images/${imagePath}`;
   };
@@ -29,8 +29,21 @@ const Projects: React.FC = () => {
       'paused': { label: 'Paused', color: 'bg-yellow-500/20 text-yellow-400 border-yellow-500/30' },
       'planned': { label: 'Planned', color: 'bg-purple-500/20 text-purple-400 border-purple-500/30' }
     };
-    
+
     return statusConfig[status as keyof typeof statusConfig] || statusConfig['paused'];
+  };
+
+  // Get status border color for card outline
+  const getStatusBorderColor = (status: string) => {
+    const borderConfig = {
+      'finished': 'border-green-500/50 hover:border-green-500',
+      'in-progress': 'border-blue-500/50 hover:border-blue-500',
+      'abandoned': 'border-red-500/50 hover:border-red-500',
+      'paused': 'border-yellow-500/50 hover:border-yellow-500',
+      'planned': 'border-purple-500/50 hover:border-purple-500'
+    };
+
+    return borderConfig[status as keyof typeof borderConfig] || borderConfig['paused'];
   };
 
   return (
@@ -47,12 +60,13 @@ const Projects: React.FC = () => {
         <div className="grid md:grid-cols-2 gap-8 mb-16">
           {featuredProjects.map((project, index) => {
             const statusBadge = getStatusBadge(project.status);
+            const statusBorderColor = getStatusBorderColor(project.status);
             const imageUrl = getProjectImage(project.image);
-            
+
             return (
               <div
                 key={index}
-                className="group bg-theme-card border border-theme-primary rounded-xl overflow-hidden hover:bg-theme-card-hover transition-all duration-300 hover:scale-105 hover:shadow-2xl theme-card"
+                className={`group bg-theme-card border rounded-xl overflow-hidden hover:bg-theme-card-hover transition-all duration-300 hover:scale-105 hover:shadow-2xl theme-card flex flex-col ${statusBorderColor}`}
               >
                 <div className="relative overflow-hidden h-48 bg-theme-card border-b border-theme-primary">
                   {imageUrl ? (
@@ -68,55 +82,55 @@ const Projects: React.FC = () => {
                   )}
                 </div>
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-theme-primary mb-3">
-                  {project.title}
-                </h3>
+                <div className="p-6 flex flex-col flex-grow">
+                  <h3 className="text-xl font-semibold text-theme-primary mb-3">
+                    {project.title}
+                  </h3>
 
-                <p className="text-theme-secondary text-sm leading-relaxed mb-4">
-                  {project.description}
-                </p>
+                  <p className="text-theme-secondary text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
 
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.technologies.map((tech, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 bg-theme-card border border-theme-primary text-theme-accent text-xs rounded-full hover:border-theme-accent transition-all duration-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="flex justify-between items-center">
-                  <div className="flex space-x-4">
-                    <a
-                      href={project.liveUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-theme-accent hover:text-theme-accent transition-colors"
-                    >
-                      <ExternalLink size={20} />
-                      <span className="text-sm">Live Demo</span>
-                    </a>
-
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center space-x-2 text-theme-secondary hover:text-theme-primary transition-colors"
-                    >
-                      <Github size={20} />
-                      <span className="text-sm">Code</span>
-                    </a>
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 bg-theme-card border border-theme-primary text-theme-accent text-xs rounded-full hover:border-theme-accent transition-all duration-300"
+                      >
+                        {tech}
+                      </span>
+                    ))}
                   </div>
-                  
-                  <span className={`px-2 py-1 text-xs rounded-full border ${statusBadge.color}`}>
-                    {statusBadge.label}
-                  </span>
+
+                  <div className="flex justify-between items-center mt-auto">
+                    <div className="flex space-x-4">
+                      <a
+                        href={project.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-theme-accent hover:text-theme-accent transition-colors"
+                      >
+                        <ExternalLink size={20} />
+                        <span className="text-sm">Live Demo</span>
+                      </a>
+
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center space-x-2 text-theme-secondary hover:text-theme-primary transition-colors"
+                      >
+                        <Github size={20} />
+                        <span className="text-sm">Code</span>
+                      </a>
+                    </div>
+
+                    <span className={`px-2 py-1 text-xs rounded-full border ${statusBadge.color}`}>
+                      {statusBadge.label}
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
             );
           })}
         </div>
@@ -131,56 +145,57 @@ const Projects: React.FC = () => {
             <div className="grid md:grid-cols-3 gap-6">
               {otherProjects.map((project, index) => {
                 const statusBadge = getStatusBadge(project.status);
+                const statusBorderColor = getStatusBorderColor(project.status);
                 return (
                   <div
                     key={index}
-                    className="bg-theme-card border border-theme-primary rounded-lg p-6 hover:bg-theme-card-hover transition-all duration-300 hover:scale-105 theme-card"
+                    className={`bg-theme-card border rounded-lg p-6 hover:bg-theme-card-hover transition-all duration-300 hover:scale-105 theme-card flex flex-col ${statusBorderColor}`}
                   >
                     <h4 className="text-lg font-semibold text-theme-primary mb-3">
                       {project.title}
                     </h4>
 
-                  <p className="text-theme-secondary text-sm leading-relaxed mb-4">
-                    {project.description}
-                  </p>
+                    <p className="text-theme-secondary text-sm leading-relaxed mb-4">
+                      {project.description}
+                    </p>
 
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech, index) => (
-                      <span
-                        key={index}
-                        className="px-2 py-1 bg-theme-card border border-theme-primary text-theme-accent text-xs rounded hover:border-theme-accent transition-all duration-300"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="flex justify-between items-center">
-                    <div className="flex space-x-4">
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-theme-accent hover:text-theme-accent transition-colors"
-                      >
-                        <ExternalLink size={18} />
-                      </a>
-
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-theme-secondary hover:text-theme-primary transition-colors"
-                      >
-                        <Github size={18} />
-                      </a>
+                    <div className="flex flex-wrap gap-2 mb-4">
+                      {project.technologies.slice(0, 3).map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-2 py-1 bg-theme-card border border-theme-primary text-theme-accent text-xs rounded hover:border-theme-accent transition-all duration-300"
+                        >
+                          {tech}
+                        </span>
+                      ))}
                     </div>
-                    
-                    <span className={`px-2 py-1 text-xs rounded-full border ${statusBadge.color}`}>
-                      {statusBadge.label}
-                    </span>
+
+                    <div className="flex justify-between items-center mt-auto">
+                      <div className="flex space-x-4">
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-theme-accent hover:text-theme-accent transition-colors"
+                        >
+                          <ExternalLink size={18} />
+                        </a>
+
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-theme-secondary hover:text-theme-primary transition-colors"
+                        >
+                          <Github size={18} />
+                        </a>
+                      </div>
+
+                      <span className={`px-2 py-1 text-xs rounded-full border ${statusBadge.color}`}>
+                        {statusBadge.label}
+                      </span>
+                    </div>
                   </div>
-                </div>
                 );
               })}
             </div>

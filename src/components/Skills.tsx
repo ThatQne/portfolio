@@ -2,6 +2,7 @@ import React, { useEffect, useRef } from 'react';
 import * as SimpleIcons from 'react-icons/si';
 import * as LucideIcons from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
+import { getBrandColor } from '../config/theme';
 
 interface SkillCapsuleProps {
   name: string;
@@ -19,9 +20,16 @@ const SkillCapsule: React.FC<SkillCapsuleProps> = ({ name, icon, pack = 'lucide'
     IconComponent = (LucideIcons as any)[icon] || LucideIcons.Code;
   }
 
+  // Get the brand color for this technology
+  const brandColor = getBrandColor(name);
+
   return (
     <div className="flex-shrink-0 flex items-center space-x-2 bg-theme-card border border-theme-primary rounded-full px-4 py-2 mx-2 hover:bg-theme-card-hover hover:border-theme-accent transition-all duration-300 hover:scale-105 backdrop-blur-sm skill-capsule">
-      <IconComponent size={16} className="text-theme-accent" />
+      <IconComponent 
+        size={16} 
+        style={{ color: brandColor }}
+        className="transition-colors duration-300"
+      />
       <span className="text-sm font-medium text-theme-primary whitespace-nowrap">{name}</span>
     </div>
   );

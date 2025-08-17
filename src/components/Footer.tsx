@@ -1,8 +1,13 @@
 import React from 'react';
-import { Heart } from 'lucide-react';
+import { Heart, Lock, Unlock } from 'lucide-react';
 import { portfolioData } from '../data/portfolio';
 
-const Footer: React.FC = () => {
+interface FooterProps {
+  isUnlocked?: boolean;
+  onLockClick?: () => void;
+}
+
+const Footer: React.FC<FooterProps> = ({ isUnlocked = false, onLockClick }) => {
   const { personal } = portfolioData;
   const currentYear = new Date().getFullYear();
 
@@ -16,10 +21,17 @@ const Footer: React.FC = () => {
             </p>
           </div>
           
-          <div className="text-center md:text-right">
+          <div className="text-center md:text-right flex items-center justify-center md:justify-end space-x-4">
             <p className="text-theme-muted text-sm">
               Designed & Built by {personal.name}
             </p>
+            <button
+              onClick={onLockClick}
+              className="p-2 text-theme-muted hover:text-theme-accent transition-colors duration-300 hover:scale-110"
+              title={isUnlocked ? "Access Casual Corner" : "Unlock Secret Area"}
+            >
+              {isUnlocked ? <Unlock size={16} /> : <Lock size={16} />}
+            </button>
           </div>
         </div>
       </div>

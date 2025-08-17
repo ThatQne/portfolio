@@ -206,6 +206,63 @@ export const greenTheme: ThemeConfig = {
 // Current active theme - change this to switch themes
 export const currentTheme = darkTheme;
 
+// Brand colors for technology icons
+export const brandColors: Record<string, string> = {
+  // Frontend Technologies
+  'React': '#61DAFB',
+  'TypeScript': '#3178C6',
+  'Next.js': '#000000',
+  'Vue.js': '#4FC08D',
+  'JavaScript': '#F7DF1E',
+  'HTML5': '#E34F26',
+  'CSS3': '#1572B6',
+  'Tailwind': '#06B6D4',
+  'Lua': '#2C2D72',
+  'Python': '#3776AB',
+  
+  // Backend & Database
+  'Node.js': '#339933',
+  'SQLite': '#003B57',
+  'MongoDB': '#47A248',
+  'Redis': '#DC382D',
+  'Docker': '#2496ED',
+  'AWS': '#FF9900',
+  
+  // Tools & Workflow
+  'Git': '#F05032',
+  'GitHub': '#FFFFFF',
+  'Figma': '#F24E1E',
+  'VS Code': '#007ACC',
+  'Vite': '#646CFF',
+  
+  // Add more as needed
+  'Angular': '#DD0031',
+  'Svelte': '#FF3E00',
+  'Flutter': '#02569B',
+  'Rust': '#000000',
+  'Go': '#00ADD8',
+  'Java': '#ED8B00',
+  'C++': '#00599C',
+  'PHP': '#777BB4',
+  'Laravel': '#FF2D20',
+  'Django': '#092E20',
+  'Flask': '#000000',
+  'Express': '#000000',
+  'GraphQL': '#E10098',
+  'PostgreSQL': '#336791',
+  'MySQL': '#4479A1',
+  'Firebase': '#FFCA28',
+  'Supabase': '#3ECF8E',
+  'Vercel': '#000000',
+  'Netlify': '#00C7B7',
+  'Heroku': '#430098',
+};
+
+// Helper function to get brand color or fallback to theme accent
+export const getBrandColor = (techName: string, fallback: string = '#60a5fa'): string => {
+  return brandColors[techName] || fallback;
+};
+
 // Helper function to get CSS custom properties
 export const getThemeCSS = (theme: ThemeConfig): Record<string, string> => {
   return {

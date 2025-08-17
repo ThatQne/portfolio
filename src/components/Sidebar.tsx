@@ -40,7 +40,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
 
           // Check if we're at the bottom of the page
           const isAtBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 10;
-          
+
           if (isAtBottom) {
             // If at bottom, highlight the last section
             setActiveSection(sections[sections.length - 1].id);
@@ -99,7 +99,7 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
               <button
                 onClick={() => scrollToSection(section.id)}
                 className={`relative w-10 h-10 rounded-full border transition-all duration-300 flex items-center justify-center hover:scale-110 ${isActive
-                  ? 'bg-theme-accent border-theme-accent text-white'
+                  ? 'bg-theme-accent border-theme-accent text-white'  
                   : 'bg-theme-tertiary border-theme-primary text-theme-muted hover:border-theme-accent hover:text-theme-accent'
                   }`}
                 style={isActive ? {
@@ -118,9 +118,6 @@ const Sidebar: React.FC<SidebarProps> = ({ className = '' }) => {
               <div className="absolute left-full ml-4 top-1/2 transform -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-all duration-200 pointer-events-none">
                 <div className="bg-theme-tertiary border border-theme-secondary rounded-lg px-3 py-2 text-sm text-theme-primary whitespace-nowrap shadow-lg">
                   {section.label}
-                  <div className="absolute left-0 top-1/2 transform -translate-x-1 -translate-y-1/2">
-                    <ChevronRight size={12} className="text-theme-secondary rotate-180" />
-                  </div>
                 </div>
               </div>
             </div>
