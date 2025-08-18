@@ -40,7 +40,23 @@ const PasswordModal: React.FC<PasswordModalProps> = ({ isOpen, onClose, onSubmit
 
   return (
     <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-      <div className={`bg-theme-card border border-theme-primary rounded-lg p-6 w-96 max-w-md mx-4 ${isShaking ? 'animate-pulse' : ''}`}>
+      <style>
+        {`
+          @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-8px); }
+            20%, 40%, 60%, 80% { transform: translateX(8px); }
+          }
+          .shake-animation {
+            animation: shake 0.6s ease-in-out;
+          }
+        `}
+      </style>
+      <div 
+        className={`bg-theme-card border rounded-lg p-6 w-96 max-w-md mx-4 ${
+          isShaking ? 'border-red-500 shake-animation' : 'border-theme-primary'
+        }`}
+      >
         <div className="flex justify-between items-center mb-4">
           <div className="flex items-center space-x-2">
             <Lock className="text-theme-accent" size={20} />

@@ -1,9 +1,24 @@
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
+
+const UNLOCK_SESSION_KEY = 'easter-egg-unlocked';
 
 export const useEasterEgg = () => {
-  const [isUnlocked, setIsUnlocked] = useState(false);
+  // Initialize from sessionStorage if available
+  const [isUnlocked, setIsUnlocked] = useState(() => {
+    if (typeof window !== 'undefined') {
+      return sessionStorage.getItem(UNLOCK_SESSION_KEY) === 'true';
+    }
+    return false;
+  });
   const [showPasswordModal, setShowPasswordModal] = useState(false);
   const [showCasualPage, setShowCasualPage] = useState(false);
+
+  // Save unlock state to sessionStorage whenever it changes
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      sessionStorage.setItem(UNLOCK_SESSION_KEY, isUnlocked.toString());
+    }
+  }, [isUnlocked]);
 
   const SECRET_PASSWORD = "matrix"; // You can change this to whatever you want
   const BUBBLE_MESSAGE = "The matrix has you..."; // You can change this comic bubble text

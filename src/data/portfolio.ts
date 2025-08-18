@@ -233,48 +233,83 @@ export const portfolioData = {
     },
   ],
 
-  // Easter egg casual content
-  casualProjects: [
-    {
-      title: "Gaming Setup",
-      description: "My current gaming rig and favorite games",
-      icon: "gamepad",
-      link: "https://steamcommunity.com/id/thatqne",
-      tags: ["Gaming", "Hardware"],
-      details: "RTX 4070, Ryzen 7 5800X, 32GB RAM - Currently grinding Valorant and Apex Legends"
+  // Easter egg casual content - code editor style
+  casualConfig: {
+    spotify: {
+      playlistId: "094vqnt9DTvSHbJ40sETuu?si=30f33fe04ee04eb9", // Replace with your playlist ID
+      playlistUrl: "https://open.spotify.com/playlist/094vqnt9DTvSHbJ40sETuu?si=30f33fe04ee04eb9", // Replace with your playlist URL
+      description: "My coding soundtrack - lo-fi beats and synthwave vibes" // Your personal description
     },
-    {
-      title: "Music Playlists",
-      description: "Coding soundtracks and chill vibes",
-      icon: "music",
-      link: "https://open.spotify.com/user/thatqne",
-      tags: ["Music", "Spotify"],
-      details: "Lo-fi hip hop, synthwave, and electronic music for those late-night coding sessions"
-    },
-    {
-      title: "Coffee Reviews",
-      description: "Rating local coffee shops and brews",
-      icon: "coffee",
-      link: "#",
-      tags: ["Coffee", "Reviews"],
-      details: "On a mission to find the perfect espresso in the DMV area"
-    },
-    {
-      title: "Photography",
-      description: "Random shots and street photography",
-      icon: "camera",
-      link: "https://instagram.com/thatqne",
-      tags: ["Photography", "Art"],
-      details: "Capturing moments with my trusty Canon EOS R6"
-    }
-  ],
+    categories: [
+      {
+        id: "music",
+        title: "music.json",
+        description: "// Coding soundtracks and chill vibes",
+        icon: "music",
+        color: "#1DB954", // Spotify green
+        content: {
+          type: "spotify",
+          data: {}
+        }
+      },
+      {
+        id: "gaming",
+        title: "gaming.js",
+        description: "// Current setup and favorite games",
+        icon: "gamepad",
+        color: "#FF6B35", // Gaming orange
+        content: {
+          type: "gaming",
+          data: {
+            setup: {
+              gpu: "RTX 4070",
+              cpu: "Ryzen 7 5800X",
+              ram: "32GB DDR4",
+              monitor: "27\" 1440p 144Hz"
+            },
+            games: [
+              { name: "Valorant", hours: 500, rank: "Diamond" },
+              { name: "Apex Legends", hours: 300, rank: "Platinum" },
+              { name: "CS2", hours: 200, rank: "Global Elite" }
+            ]
+          }
+        }
+      },
+      {
+        id: "hobbies",
+        title: "hobbies.tsx",
+        description: "// Random interests and side projects",
+        icon: "camera",
+        color: "#8B5CF6", // Purple
+        content: {
+          type: "hobbies",
+          data: {
+            photography: {
+              camera: "Canon EOS R6",
+              style: "Street & Portrait",
+              instagram: "@thatqne"
+            },
+            coffee: {
+              shops_visited: 42,
+              favorite_brew: "Ethiopian Single Origin",
+              current_quest: "Perfect espresso in DMV"
+            },
+            other: [
+              "Mechanical keyboards",
+              "Home automation",
+              "3D printing experiments"
+            ]
+          }
+        }
+      }
+    ]
+  },
 
   casualStats: [
-    { label: "Hours in Valorant", value: "500+" },
-    { label: "Coffee shops visited", value: "42" },
+    { label: "Hours in Apex", value: "100+" },
+    { label: "Rank in Apex", value: "Bronze III" },
     { label: "Bugs created", value: "∞" },
     { label: "Side projects started", value: "127" },
     { label: "Side projects finished", value: "3" },
-    { label: "Energy drinks consumed", value: "9001" }
   ]
 };
