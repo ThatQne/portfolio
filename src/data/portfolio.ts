@@ -137,6 +137,16 @@ export const portfolioData = {
       // image: "car-trading-app.jpg" // Optional: add image filename from src/data/images/
     },
     {
+      title: "Seruvo",
+      description: "An image hosting database with secure API access and no-login guest uploads.",
+      technologies: ["React", "Node.js"],
+      liveUrl: "https://thatqne.github.io/seruvo/",
+      githubUrl: "https://github.com/thatqne/seruvo",
+      featured: true,
+      status: "finished"
+      // image: "task-app.png" // Optional: add image filename from src/data/images/
+    },
+    {
       title: "DoThat",
       description: "A minimalist task management application, with drag-and-drop functionality, reminders, and extra features.",
       technologies: ["Vue.js", "Firebase", "Vuetify"],
